@@ -1,0 +1,12 @@
+apiVersion: forecastle.stakater.com/v1alpha1
+kind: ForecastleApp
+metadata:
+  name: minio-console
+  namespace: minio
+spec:
+  name: Minio Console
+  group: Platform
+  icon: https://github.com/stakater/ForecastleIcons/raw/master/minio.png
+  urlFrom: 
+    ingressRef:
+      name: minio-console

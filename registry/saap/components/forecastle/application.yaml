@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: forecastle
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: '10'
+spec:
+  project: default
+  source:
+    repoURL: https://stakater.github.io/stakater-charts
+    targetRevision: v1.0.132
+    chart: forecastle
+    helm:
+      values: |-
+        forecastle:
+          deployment:
+            replicas: 2
+            annotations:
+              configmap.reloader.stakater.com/reload: forecastle
+            resources:
+              requests:
+                memory: 100Mi
+                cpu: 5m
+              limits:
+                memory: 100Mi
+                cpu: 5m
+          ingress:
+            enabled: false
+          config:
+            namespaceSelector:
+              any: true
+            headerBackground: "#FD8500"
+            headerForeground: "white"
+            title: "Forecastle"
+            crdEnabled: true
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: forecastle
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 5m0s
+        factor: 2

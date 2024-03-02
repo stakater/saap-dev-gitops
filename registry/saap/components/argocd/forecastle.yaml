@@ -1,0 +1,12 @@
+apiVersion: forecastle.stakater.com/v1alpha1
+kind: ForecastleApp
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  name: ArgoCD
+  group: Platform
+  icon: https://github.com/stakater/ForecastleIcons/raw/master/argocd.png
+  urlFrom: 
+    ingressRef:
+      name: argocd-server

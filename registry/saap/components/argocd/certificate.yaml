@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-saap-tls
+  namespace: argocd
+spec:
+  secretName: argocd-saap-tls
+  dnsNames:
+    - argocd.saap.dev
+  issuerRef:
+    name: my-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io

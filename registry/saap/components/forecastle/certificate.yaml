@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: forecastle-saap-tls
+  namespace: forecastle
+spec:
+  secretName: forecastle-saap-tls
+  dnsNames:
+    - forecastle.saap.dev
+  issuerRef:
+    name: my-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io

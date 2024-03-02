@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: forecastle-saap
+  namespace: forecastle
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: forecastle
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+    host: forecastle.saap.dev
+  tls:
+  - hosts:
+      - forecastle.saap.dev
+    secretName: forecastle-saap-tls

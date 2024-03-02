@@ -1,0 +1,12 @@
+apiVersion: forecastle.stakater.com/v1alpha1
+kind: ForecastleApp
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  name: Vault
+  group: Platform
+  icon: https://github.com/stakater/ForecastleIcons/raw/master/vault.png
+  urlFrom: 
+    ingressRef:
+      name: vault

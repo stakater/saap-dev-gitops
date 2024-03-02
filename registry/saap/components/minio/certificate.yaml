@@ -1,0 +1,27 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio-saap-tls
+  namespace: minio
+spec:
+  secretName: minio-saap-tls
+  dnsNames:
+    - minio.saap.dev
+  issuerRef:
+    name: my-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio-console-saap-tls
+  namespace: minio
+spec:
+  secretName: minio-console-saap-tls
+  dnsNames:
+    - minio-console.saap.dev
+  issuerRef:
+    name: my-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
