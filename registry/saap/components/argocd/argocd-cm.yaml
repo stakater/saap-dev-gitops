@@ -10,4 +10,4 @@ data:
   admin.enabled: 'true'
   statusbadge.enabled: 'true'
   users.anonymous.enabled: 'false'
-  url: 'https://argocd.kubefirst.dev'
+  url: 'https://argocd.saap.dev'
