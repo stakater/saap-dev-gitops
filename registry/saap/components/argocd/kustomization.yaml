@@ -10,8 +10,8 @@ resources:
   - argocd-ui-ingressroute.yaml
   - argocd-ui-ingress.yaml
   - argocd-clusterrolebinding.yaml
-  - forecastle.yaml
-  - certificate.yaml
+#  - forecastle.yaml
+#  - certificate.yaml
 
 patchesStrategicMerge:
   - argocd-cm.yaml
